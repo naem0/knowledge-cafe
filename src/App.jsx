@@ -7,7 +7,8 @@ import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
   const [redTime, setRedTime] = useState(0);
-  const [blogTitle, setBlogTitle] =useState("")
+  const [bookmark, setBookmark] = useState(0);
+  
   const hendleRedTime = (time) => {
     const previousRedTime = JSON.parse(localStorage.getItem("redTime"));
     if (previousRedTime) {
@@ -19,8 +20,26 @@ function App() {
       setRedTime(time);
     }
   };
-  const hendleBookmark = (blogTitle) =>{
-    setBlogTitle(blogTitle)
+  const hendleBookmark = (blogTitle, id) =>{
+    const previousBookmark = JSON.parse(localStorage.getItem("bookmark"));
+    let bookmark= [];
+    const setBlogBookmark= { blogTitle, id };
+    console.log(previousBookmark, bookmark.length);
+    
+    if (previousBookmark) {
+      console.log('aca');
+      const isBlogBookmark= previousBookmark.find(bl=>bl.id==id);
+      if (isBlogBookmark) {
+        alert("aca")
+      }
+      bookmark= [...previousBookmark, setBlogBookmark];
+      setBookmark(bookmark);
+    }
+    else{
+      bookmark.push(setBlogBookmark);
+      setBookmark(bookmark);
+    }
+    localStorage.setItem("bookmark", JSON.stringify(bookmark));
   };
   return (
     <div className="App container-xl">
@@ -32,7 +51,7 @@ function App() {
           <Body hendleRedTime={hendleRedTime} hendleBookmark= {hendleBookmark}></Body>
         </div>
         <div className='col-md-4'>
-          <Sidebar redTime={redTime} blogTitle={blogTitle}></Sidebar>
+          <Sidebar redTime={redTime} bookmark={bookmark}></Sidebar>
         </div>
       </div>
 

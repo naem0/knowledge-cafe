@@ -20,7 +20,7 @@ const Blog = ({blog, hendleRedTime, hendleBookmark}) => {
                         </div>
                         <div className='d-flex gap-3'>
                             <p className='text-secondary'>{blog.red_time} min read</p>
-                            <div onClick={()=>hendleBookmark(blog.about)}>
+                            <div onClick={()=>hendleBookmark(blog.about, blog.id)}>
                                 <FontAwesomeIcon icon={faBookmark} />
                             </div>
                             
