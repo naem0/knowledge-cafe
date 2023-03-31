@@ -18,8 +18,10 @@ const Sidebar = ({redTime,bookmark}) => {
     return (
         
         <div>
-
-            <div className='text-bg-light p-4'>
+            <div className="text-bg-light px-4 py-3 border border-primary rounded text-primary my-4">
+                <h5>Spent time on read : {time} min</h5>
+            </div>
+            <div className='text-bg-light p-4 rounded'>
                 <h3 className='my-4'>Bookmarked Blogs : {bookmarks.length}</h3> 
                 {
                     bookmarks.map(bookmark =><h6 className='bg-white p-3 my2'>{bookmark.blogTitle}</h6>)
