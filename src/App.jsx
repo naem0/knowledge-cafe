@@ -1,34 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import React, {useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Header/Header';
+import Body from './components/Body/Body';
+import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [redTime, setRedTime] = useState(0);
+  const [blogTitle, setBlogTitle] =useState("")
+  const hendleRedTime = (time) => {
+    const previousRedTime = JSON.parse(localStorage.getItem("redTime"));
+    if (previousRedTime) {
+      const sum = previousRedTime + time;
+      localStorage.setItem("redTime", sum);
+      setRedTime(sum);
+    } else {
+      localStorage.setItem("redTime", time);
+      setRedTime(time);
+    }
+  };
+  const hendleBookmark = (blogTitle) =>{
+    setBlogTitle(blogTitle)
+  };
   return (
-    <div className="App">
+    <div className="App container-xl">
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Header></Header>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className='row'>
+        <div className='col-md-8'>
+          <Body hendleRedTime={hendleRedTime} hendleBookmark= {hendleBookmark}></Body>
+        </div>
+        <div className='col-md-4'>
+          <Sidebar redTime={redTime} blogTitle={blogTitle}></Sidebar>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
     </div>
   )
 }
