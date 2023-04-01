@@ -2,7 +2,7 @@ import React from 'react';
 
 const QuestionsAnswers = () => {
     return (
-        <div>
+        <div className='border-top'>
             <div className="my-5">
                 <h2>Props vs state</h2>
                 <p>
