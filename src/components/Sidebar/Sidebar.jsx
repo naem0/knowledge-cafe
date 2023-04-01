@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 
+
 const Sidebar = ({redTime,bookmark}) => {
     const [time, setTime] = useState(redTime);
     const [bookmarks, setBookmark] = useState([]);
@@ -22,9 +23,9 @@ const Sidebar = ({redTime,bookmark}) => {
                 <h5>Spent time on read : {time} min</h5>
             </div>
             <div className='text-bg-light p-4 rounded'>
-                <h3 className='my-4'>Bookmarked Blogs : {bookmarks.length}</h3> 
+                <h3 className='my-4'>Bookmarked Blogs : {bookmarks?.length}</h3> 
                 {
-                    bookmarks.map(bookmark =><h6 className='bg-white p-3 my2'>{bookmark.blogTitle}</h6>)
+                    bookmarks?.map(bookmark =><h6 className='bg-white p-3 my2'>{bookmark.blogTitle}</h6>)
                 }
             </div>
         </div>

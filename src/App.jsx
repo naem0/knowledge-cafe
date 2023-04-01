@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header';
 import Body from './components/Body/Body';
 import Sidebar from './components/Sidebar/Sidebar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [redTime, setRedTime] = useState(0);
@@ -24,13 +26,11 @@ function App() {
     const previousBookmark = JSON.parse(localStorage.getItem("bookmark"));
     let bookmark= [];
     const setBlogBookmark= { blogTitle, id };
-    console.log(previousBookmark, bookmark.length);
     
     if (previousBookmark) {
-      console.log('aca');
       const isBlogBookmark= previousBookmark.find(bl=>bl.id==id);
       if (isBlogBookmark) {
-        alert("aca")
+        toast("Already bookmark");
       }
       bookmark= [...previousBookmark, setBlogBookmark];
       setBookmark(bookmark);
@@ -52,6 +52,7 @@ function App() {
         </div>
         <div className='col-md-4'>
           <Sidebar redTime={redTime} bookmark={bookmark}></Sidebar>
+          <ToastContainer></ToastContainer>
         </div>
       </div>
 
