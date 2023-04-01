@@ -2,22 +2,23 @@
 import React, { useEffect, useState } from "react";
 
 
-const Sidebar = ({redTime,bookmark}) => {
-    const [time, setTime] = useState(redTime);
-    const [bookmarks, setBookmark] = useState([]);
+const Sidebar = ({readTime,bookmark}) => {
 
-  useEffect(() => {
-    const getRedTimeFromStorage = localStorage.getItem("redTime");
-    setTime(getRedTimeFromStorage);
-  }, [redTime]);
-  useEffect(()=>{
-    const getBookmarkData= JSON.parse(localStorage.getItem("bookmark"));
-    setBookmark(getBookmarkData);
-  },[bookmark]);
-  console.log(bookmarks)
+    // Read Time data lode from localStorage 
+    const [time, setTime] = useState(readTime);
+    useEffect(() => {
+        const getReadTimeFromStorage = localStorage.getItem("readTime");
+        setTime(getReadTimeFromStorage);
+     }, [readTime]);
+    
+    //  Bookmark data lode from localStorage 
+    const [bookmarks, setBookmark] = useState([]);
+    useEffect(()=>{
+        const getBookmarkData= JSON.parse(localStorage.getItem("bookmark"));
+        setBookmark(getBookmarkData);
+    },[bookmark]);
  
     return (
-        
         <div>
             <div className="text-bg-light px-4 py-3 border border-primary rounded text-primary my-4">
                 <h5>Spent time on read : {time} min</h5>

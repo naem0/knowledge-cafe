@@ -8,20 +8,21 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const [redTime, setRedTime] = useState(0);
+  const [readTime, setReadTime] = useState(0);
   const [bookmark, setBookmark] = useState(0);
-  
-  const hendleRedTime = (time) => {
-    const previousRedTime = JSON.parse(localStorage.getItem("redTime"));
-    if (previousRedTime) {
-      const sum = previousRedTime + time;
-      localStorage.setItem("redTime", sum);
-      setRedTime(sum);
+  // Read time hendel 
+  const hendleReadTime = (time) => {
+    const previousReadTime = JSON.parse(localStorage.getItem("readTime"));
+    if (previousReadTime) {
+      const sum = previousReadTime + time;
+      localStorage.setItem("readTime", sum);
+      setReadTime(sum);
     } else {
-      localStorage.setItem("redTime", time);
-      setRedTime(time);
+      localStorage.setItem("readTime", time);
+      setReadTime(time);
     }
   };
+  // bookmark hendle 
   const hendleBookmark = (blogTitle, id) =>{
     const previousBookmark = JSON.parse(localStorage.getItem("bookmark"));
     let bookmark= [];
@@ -48,10 +49,10 @@ function App() {
       </div>
       <div className='row'>
         <div className='col-md-8'>
-          <Body hendleRedTime={hendleRedTime} hendleBookmark= {hendleBookmark}></Body>
+          <Body hendleReadTime={hendleReadTime} hendleBookmark= {hendleBookmark}></Body>
         </div>
         <div className='col-md-4'>
-          <Sidebar redTime={redTime} bookmark={bookmark}></Sidebar>
+          <Sidebar readTime={readTime} bookmark={bookmark}></Sidebar>
           <ToastContainer></ToastContainer>
         </div>
       </div>

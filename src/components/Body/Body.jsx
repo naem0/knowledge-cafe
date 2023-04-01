@@ -4,7 +4,7 @@ import {useEffect} from "react";
 import Blog from '../Blog/Blog';
 
 
-const Body = ({hendleRedTime, hendleBookmark}) => {
+const Body = ({hendleReadTime, hendleBookmark}) => {
 
     const [blogs, setBlogs] = useState([]);
     useEffect(() =>{
@@ -19,7 +19,7 @@ const Body = ({hendleRedTime, hendleBookmark}) => {
                 {
                     blogs.map((blog) => <Blog
                         blog={blog}
-                        hendleRedTime={hendleRedTime}
+                        hendleReadTime={hendleReadTime}
                         key={blog.id}
                         hendleBookmark={hendleBookmark}
                     ></Blog> )

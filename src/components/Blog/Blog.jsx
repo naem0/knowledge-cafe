@@ -3,7 +3,7 @@ import './Blog.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
-const Blog = ({blog, hendleRedTime, hendleBookmark}) => {
+const Blog = ({blog, hendleReadTime, hendleBookmark}) => {
     return (
         <div className="blog-card my-4">
                 <div className="blog-img">
@@ -28,7 +28,7 @@ const Blog = ({blog, hendleRedTime, hendleBookmark}) => {
                     </div>
                     <h3>{blog.about}</h3>
                     <p className='my-3 text-secondary fs-6 '>#{blog.tags[0]}  #{ blog.tags[1]}</p>
-                    <a onClick={()=>hendleRedTime(blog.red_time)} className='text-decoration-underline'>Mark as read</a>
+                    <a onClick={()=>hendleReadTime(blog.red_time)} className='text-decoration-underline'>Mark as read</a>
                 </div>
             </div>
     );
