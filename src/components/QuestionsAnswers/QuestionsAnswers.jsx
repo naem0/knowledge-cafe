@@ -26,6 +26,16 @@ const QuestionsAnswers = () => {
                 Although useEffect is commonly used for fetching data in React, it has a broader purpose than that. useEffect is a hook that allows you to perform side effects in functional components. A side effect is any operation that affects something outside of the component, such as updating the document title, subscribing to a WebSocket connection, or setting up event listeners.
                 </p>
             </div>
+            <div className="my-5">
+                <h2>How Does React work?</h2>
+                <p>
+                React is a JavaScript library for building user interfaces that uses a declarative approach to define UI components. When a React application is loaded in a browser, the following happens:
+                </p>
+                <p>Virtual DOM reconciliation: React compares the current virtual DOM tree with the previous one to determine which elements have changed. This process is called "reconciliation". By comparing the virtual DOM trees, React can update the real DOM efficiently by only making the necessary changes.</p>
+                <p>DOM update: React updates the real DOM to reflect the changes in the virtual DOM. The updated elements are then visible to the user.</p>
+                <p>Event handling: When the user interacts with the UI, React handles the events and updates the state of the components. This triggers a re-rendering of the affected components, which in turn updates the virtual DOM and the real DOM.</p>
+                
+            </div>
         </div>
     );
 };
