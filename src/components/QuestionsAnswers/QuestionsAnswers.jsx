@@ -20,6 +20,12 @@ const QuestionsAnswers = () => {
                 useState allows our JSX functional components to have state variables. It takes one argument which is initial state and returns a state value and a function to update it. It allows you to declare a state variable and a function to update that variable, and returns an array containing the current state value and the function to update it.
                 </p>
             </div>
+            <div className="my-5">
+                <h2>Purpose of useEffect other than fetching data.</h2>
+                <p>
+                Although useEffect is commonly used for fetching data in React, it has a broader purpose than that. useEffect is a hook that allows you to perform side effects in functional components. A side effect is any operation that affects something outside of the component, such as updating the document title, subscribing to a WebSocket connection, or setting up event listeners.
+                </p>
+            </div>
         </div>
     );
 };
