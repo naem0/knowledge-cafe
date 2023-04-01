@@ -5,11 +5,11 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
 const Blog = ({blog, hendleReadTime, hendleBookmark}) => {
     return (
-        <div className="blog-card my-4 mb-5">
+        <div className="blog-card my-4 border-bottom">
                 <div className="blog-img">
                     <img className='w-100' src={blog.picture} alt="" />
                 </div>
-                <div className="blog-text-continar">
+                <div className="blog-text-continar mb-4">
                     <div className='d-flex align-items-center justify-content-between my-4'>
                         <div className='d-flex gap-4'>
                             <img className='author-img' src={blog.author_picture} alt="" />

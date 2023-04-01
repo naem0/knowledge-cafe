@@ -49,7 +49,7 @@ function App() {
       <div>
         <Header></Header>
       </div>
-      <div className='row'>
+      <div className='row border-top'>
         <div className='col-md-8'>
           <Body hendleReadTime={hendleReadTime} hendleBookmark= {hendleBookmark}></Body>
         </div>
