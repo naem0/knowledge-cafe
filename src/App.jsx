@@ -8,9 +8,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+
+  // Read time hendel
   const [readTime, setReadTime] = useState(0);
-  const [bookmark, setBookmark] = useState(0);
-  // Read time hendel 
   const hendleReadTime = (time) => {
     const previousReadTime = JSON.parse(localStorage.getItem("readTime"));
     if (previousReadTime) {
@@ -22,7 +22,9 @@ function App() {
       setReadTime(time);
     }
   };
+
   // bookmark hendle 
+  const [bookmark, setBookmark] = useState(0);
   const hendleBookmark = (blogTitle, id) =>{
     const previousBookmark = JSON.parse(localStorage.getItem("bookmark"));
     let bookmark= [];
@@ -56,7 +58,6 @@ function App() {
           <ToastContainer></ToastContainer>
         </div>
       </div>
-
     </div>
   )
 }

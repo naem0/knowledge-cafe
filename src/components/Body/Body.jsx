@@ -2,7 +2,7 @@ import React from 'react';
 import {useState} from "react";
 import {useEffect} from "react";
 import Blog from '../Blog/Blog';
-
+import QuestionsAnswers from '../QuestionsAnswers/QuestionsAnswers';
 
 const Body = ({hendleReadTime, hendleBookmark}) => {
 
@@ -24,6 +24,7 @@ const Body = ({hendleReadTime, hendleBookmark}) => {
                         hendleBookmark={hendleBookmark}
                     ></Blog> )
                 }
+                <QuestionsAnswers></QuestionsAnswers>
            </div>
         </div>
     );
